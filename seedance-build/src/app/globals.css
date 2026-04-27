@@ -1,0 +1,86 @@
+/* ── Google Fonts must come FIRST — before @tailwind directives ── */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design tokens ────────────────────────────────────────── */
+:root {
+  --surface:        #0a0a0f;
+  --surface-card:   #13131c;
+  --surface-card-2: #1a1a26;
+  --surface-border: #252535;
+  --brand-glow:     rgba(99, 102, 241, 0.18);
+  --text-primary:   #f0f0fa;
+  --text-secondary: #9090b0;
+  --text-muted:     #5a5a78;
+}
+
+html,
+body {
+  background-color: var(--surface);
+  color: var(--text-primary);
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 5px; height: 5px; }
+::-webkit-scrollbar-track  { background: var(--surface); }
+::-webkit-scrollbar-thumb  { background: var(--surface-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3a3a55; }
+
+/* ── Hero grid pattern ───────────────────────────────────── */
+.bg-grid {
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+}
+
+/* ── Gradient mesh orbs ──────────────────────────────────── */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+.orb-violet { background: radial-gradient(circle, rgba(99, 102, 241, 0.22), transparent 70%); }
+.orb-purple { background: radial-gradient(circle, rgba(168, 85, 247, 0.18), transparent 70%); }
+.orb-teal   { background: radial-gradient(circle, rgba(20, 184, 166, 0.14), transparent 70%); }
+
+/* ── Glows ───────────────────────────────────────────────── */
+.glow-brand    { box-shadow: 0 0 50px var(--brand-glow), 0 0 100px rgba(99,102,241,0.08); }
+.glow-brand-sm { box-shadow: 0 0 24px var(--brand-glow); }
+.glow-emerald  { box-shadow: 0 0 30px rgba(52,211,153,0.15); }
+
+/* ── Card surface ────────────────────────────────────────── */
+.card           { background: var(--surface-card); border: 1px solid var(--surface-border); border-radius: 16px; }
+.card-hover     { transition: border-color 0.2s, box-shadow 0.2s; }
+.card-hover:hover { border-color: rgba(99,102,241,0.35); box-shadow: 0 0 20px rgba(99,102,241,0.08); }
+
+/* ── Shimmer skeleton ────────────────────────────────────── */
+.shimmer {
+  background: linear-gradient(90deg, var(--surface-card) 25%, var(--surface-card-2) 50%, var(--surface-card) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+}
+
+/* ── Video controls ──────────────────────────────────────── */
+video::-webkit-media-controls-panel { background: rgba(10, 10, 15, 0.92); }
+
+/* ── Animations ──────────────────────────────────────────── */
+@keyframes shimmer        { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+@keyframes fadeIn         { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp        { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes floatY         { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes pulseRing      { 0% { box-shadow: 0 0 0 0 rgba(99,102,241,0.35); } 70% { box-shadow: 0 0 0 10px rgba(99,102,241,0); } 100% { box-shadow: 0 0 0 0 rgba(99,102,241,0); } }
+@keyframes gradientShift  { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+.animate-fade-in    { animation: fadeIn  0.5s ease-out both; }
+.animate-slide-up   { animation: slideUp 0.4s ease-out both; }
+.animate-float      { animation: floatY  4s ease-in-out infinite; }
+.animate-pulse-ring { animation: pulseRing 2s ease-out infinite; }
+.animate-gradient   { background-size: 200% 200%; animation: gradientShift 5s ease infinite; }

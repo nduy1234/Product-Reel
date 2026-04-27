@@ -1,0 +1,52 @@
+# ── Environment & secrets ─────────────────────────────────────
+.env
+.env.*
+.env.local
+.env.*.local
+!.env.example
+
+# ── Claude AI ─────────────────────────────────────────────────
+.claude/
+
+# ── Node / npm ────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp
+.pnp.js
+
+# ── Next.js build output ──────────────────────────────────────
+.next/
+out/
+build/
+dist/
+
+# ── Build artefacts ───────────────────────────────────────────
+*.zip
+frontend.zip
+
+# ── TypeScript ────────────────────────────────────────────────
+*.tsbuildinfo
+next-env.d.ts
+
+# ── OS & editor files ─────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── Logs & debug ──────────────────────────────────────────────
+logs/
+*.log
+
+# ── Testing ───────────────────────────────────────────────────
+coverage/
+.nyc_output/
+
+# ── Misc ──────────────────────────────────────────────────────
+.vercel
+.turbo

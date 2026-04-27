@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "functions": {
+    "src/app/api/analyze-product/route.ts":     { "maxDuration": 60 },
+    "src/app/api/generate-storyboard/route.ts": { "maxDuration": 60 },
+    "src/app/api/generate-video/route.ts":      { "maxDuration": 60 },
+    "src/app/api/status/route.ts":              { "maxDuration": 60 },
+    "src/app/api/generate-voice/route.ts":      { "maxDuration": 60 },
+    "src/app/api/generate-avatar/route.ts":     { "maxDuration": 60 },
+    "src/app/api/avatar-status/route.ts":       { "maxDuration": 60 },
+    "src/app/api/distribute/route.ts":          { "maxDuration": 60 }
+  }
+}
